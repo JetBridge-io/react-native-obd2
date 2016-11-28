@@ -1,0 +1,22 @@
+{
+  "name": "react-native-obd2",
+  "version": "0.0.1",
+  "description": "OBDII data transferring for react-native Android.",
+  "license": "MIT",
+  "author": "JetBridge, LLC.",
+  "main": "index.js",
+  "keywords": [
+    "react-native",
+    "android",
+    "obd II",
+    "obd2"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jetbridge-io/react-native-obd2"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
