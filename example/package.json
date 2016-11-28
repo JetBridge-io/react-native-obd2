@@ -1,0 +1,24 @@
+{
+  "name": "react-native-obd2-example",
+  "version": "0.0.1",
+  "description": "react-native example using react-native-obd2",
+  "license": "MIT",
+  "author": "JetBridge, LLC.",
+  "private": false,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "react": "15.3.2",
+    "react-native": "0.34.1",
+    "react-native-dialogs": "0.0.19",
+    "react-native-elements": "^0.6.3",
+    "react-native-menu": "^0.20.2",
+    "react-native-navbar": "^1.5.4",
+    "react-native-obd2": "0.0.1",
+    "react-native-router-flux": "^3.36.0",
+    "react-native-sensor-manager": "^0.1.10",
+    "react-native-sp": "0.0.8",
+    "react-native-vector-icons": "^3.0.0"
+  }
+}
