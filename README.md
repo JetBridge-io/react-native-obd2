@@ -60,6 +60,21 @@ Hey stop it!
 ## Listeners
 ### 'obd2bluetoothStatus' 
 for getting bluetooth device status.
+
+JSON key | Type | Description
+---------|------|----------------
+status   |String|'connected' or 'disconnected' or 'error' or 'disable' or 'ready' or 'connecting'
+
+### 'obd2Status'
+for getting OBD-II device status
+
+JSON key | Type | Description
+---------|------|----------------
+status   |String|'disconnected' or 'receiving' or OBD data result
+
+### 'obd2LiveData'
+for getting OBD-II data. Data structure is a dictionary as below.
+
 ````
 {
    'cmdID' : String,
@@ -67,19 +82,6 @@ for getting bluetooth device status.
    'cmdResult' : String
 }
 ````
-### 'obd2Status'
-for getting OBD-II device status
-
-JSON key | Type | Description
----------|------|----------------
-status   |String|'connected' or 'disconnected' or 'error' or 'disable' or 'ready' or 'connecting'
-
-### 'obd2LiveData'
-for getting OBD-II data. Data structure is a dictionary as below.
-
-JSON key | Type | Description
----------|------|----------------
-status   |String|'disconnected' or 'receiving' or OBD data result
 
 ## Example
 We also provide simple working example in Example folder. We hope it would be helpful for you.
