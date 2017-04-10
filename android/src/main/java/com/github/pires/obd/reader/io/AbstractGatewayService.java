@@ -1,27 +1,20 @@
 package com.github.pires.obd.reader.io;
 
-import android.app.NotificationManager;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.google.inject.Inject;
-
 import java.io.IOException;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import roboguice.service.RoboService;
-
-
-public abstract class AbstractGatewayService extends RoboService {
+public abstract class AbstractGatewayService extends Service {
     public static final int NOTIFICATION_ID = 1;
     private static final String TAG = AbstractGatewayService.class.getName();
     private final IBinder binder = new AbstractGatewayServiceBinder();
-    @Inject
-    protected NotificationManager notificationManager;
     protected Context ctx;
     protected ObdProgressListener obdProgressListener;
     protected boolean isRunning = false;
@@ -56,7 +49,7 @@ public abstract class AbstractGatewayService extends RoboService {
     public void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "Destroying service...");
-        notificationManager.cancel(NOTIFICATION_ID);
+//        notificationManager.cancel(NOTIFICATION_ID);
         t.interrupt();
         Log.d(TAG, "Service destroyed.");
     }
