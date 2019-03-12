@@ -13,10 +13,18 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/furkanom/react-native-obd2"
+    "url": "git+https://github.com/furkanom/react-native-obd2.git"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/furkanom/react-native-obd2/issues"
   },
-  "devDependencies": {
+  "homepage": "https://github.com/furkanom/react-native-obd2#readme",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
