@@ -77,7 +77,7 @@ public class OBD2Handler implements ObdProgressListener {
         queueCommands();
       }
       // run again in period defined in preferences
-      new Handler().postDelayed(mQueueCommands, 1000);
+      new Handler().postDelayed(mQueueCommands, 400);
     }
   };
 

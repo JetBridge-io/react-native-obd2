@@ -8,6 +8,23 @@ $ npm install react-native-obd2 --save
 $ react-native link
 ````
 
+# For version compatibility
+You can edit this block to your own project and put it at the bottom of the **android/build.gradle**
+````
+subprojects {
+    project.configurations.all {
+        afterEvaluate {project ->
+            if (project.hasProperty("android")) {
+                android {
+                    compileSdkVersion 28
+                    buildToolsVersion '28.0.2'
+                }
+            }
+        }
+    }
+}
+````
+
 # APIs
 ## ready()
 This method will check a bluetooth status and prepare to use it.
@@ -58,7 +75,7 @@ const obd2 = require('react-native-obd2');
 Hey stop it!
 
 ## Listeners
-### 'obd2bluetoothStatus' 
+### 'obd2bluetoothStatus'
 for getting bluetooth device status.
 
 JSON key | Type | Description

@@ -1,9 +1,9 @@
 {
-  "name": "react-native-obd2",
-  "version": "0.0.2",
+  "name": "@furkanom/react-native-obd2",
+  "version": "0.0.3",
   "description": "OBDII data transferring for react-native Android.",
   "license": "MIT",
-  "author": "JetBridge, LLC.",
+  "author": "FurkanOM",
   "main": "index.js",
   "keywords": [
     "react-native",
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jetbridge-io/react-native-obd2"
+    "url": "https://github.com/furkanom/react-native-obd2"
   },
   "dependencies": {
   },
