@@ -12,13 +12,11 @@ $ react-native link
 You can edit this block to your own project and put it at the bottom of the **android/build.gradle**
 ````
 subprojects {
-    project.configurations.all {
-        afterEvaluate {project ->
-            if (project.hasProperty("android")) {
-                android {
-                    compileSdkVersion 28
-                    buildToolsVersion '28.0.2'
-                }
+    afterEvaluate {project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion rootProject.ext.compileSdkVersion
+                buildToolsVersion rootProject.ext.buildToolsVersion
             }
         }
     }
