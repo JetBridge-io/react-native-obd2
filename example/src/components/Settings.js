@@ -33,7 +33,7 @@ import Category from './widget/PreferenceCategory';
 import CheckBoxPreference from './widget/CheckBoxPreference';
 import ListPreference from './widget/ListPreference';
 
-const obd2 = require('react-native-obd2');
+const obd2 = require('@furkanom/react-native-obd2');
 const Color = require('../utils/Color');
 const Constant = require('../utils/Constant');
 
@@ -76,7 +76,7 @@ export default class Settings extends Component {
 
   render() {
     return(
-      <View> 
+      <View>
         <NavigationBar
           style={{flex: 0.1, backgroundColor: Color.BG_NAVIBAR}}
           tintColor={Color.WHITE}
@@ -97,7 +97,7 @@ export default class Settings extends Component {
               dialogTitle='Bluetooth device list'
               items={this.state.btDeviceListForUI}
               selectedIndex={this.state.selectedBTDeviceIndex}
-              onSelected={(index) => 
+              onSelected={(index) =>
                 {
                   this.setState({
                     selectedBTDeviceIndex : index
@@ -123,4 +123,3 @@ const styles = StyleSheet.create({
     borderColor: Color.SETTING_BORDER_COLOR
   },
 });
- 

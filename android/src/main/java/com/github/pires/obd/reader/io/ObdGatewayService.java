@@ -14,6 +14,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.github.pires.obd.commands.protocol.HeadersOffCommand;
 import com.github.pires.obd.commands.protocol.EchoOffCommand;
 import com.github.pires.obd.commands.protocol.LineFeedOffCommand;
 import com.github.pires.obd.commands.protocol.ObdResetCommand;
@@ -121,10 +122,10 @@ public class ObdGatewayService extends AbstractGatewayService {
         // Let's configure the connection.
         Log.d(TAG, "Queueing jobs for connection configuration..");
         queueJob(new ObdCommandJob(new ObdResetCommand()));
-        
+
         //Below is to give the adapter enough time to reset before sending the commands, otherwise the first startup commands could be ignored.
         try { Thread.sleep(500); } catch (InterruptedException e) { e.printStackTrace(); }
-        
+        queueJob(new ObdCommandJob(new HeadersOffCommand()));
         queueJob(new ObdCommandJob(new EchoOffCommand()));
 
     /*
@@ -133,9 +134,10 @@ public class ObdGatewayService extends AbstractGatewayService {
      * TODO this can be done w/o having to queue jobs by just issuing
      * command.run(), command.getResult() and validate the result.
      */
+        queueJob(new ObdCommandJob(new HeadersOffCommand()));
         queueJob(new ObdCommandJob(new EchoOffCommand()));
         queueJob(new ObdCommandJob(new LineFeedOffCommand()));
-        queueJob(new ObdCommandJob(new TimeoutCommand(62)));
+
 
         // Get protocol from preferences
         // final String protocol = prefs.getString(ConfigActivity.PROTOCOLS_LIST_KEY, "AUTO");

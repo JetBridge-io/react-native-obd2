@@ -4,15 +4,30 @@ React-native OBD-II reader designed to connect with Bluetooth Elm327 OBD reader.
 # How to install
 Run below link on your project root folder.
 ````
-$ npm install react-native-obd2 --save
+$ npm install @furkanom/react-native-obd2 --save
 $ react-native link
+````
+
+# For version compatibility
+You can edit this block to your own project and put it at the bottom of the **android/build.gradle**
+````
+subprojects {
+    afterEvaluate {project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion rootProject.ext.compileSdkVersion
+                buildToolsVersion rootProject.ext.buildToolsVersion
+            }
+        }
+    }
+}
 ````
 
 # APIs
 ## ready()
 This method will check a bluetooth status and prepare to use it.
 ````
-const obd2 = require('react-native-obd2');
+const obd2 = require('@furkanom/react-native-obd2');
 ...
 obd2.ready();
 ````
@@ -21,7 +36,7 @@ obd2.ready();
 This method brings available bluetooth device information including name and address. The result is array type of maps which consist of "name" and "address".
 ### Example
 ````
-const obd2 = require('react-native-obd2');
+const obd2 = require('@furkanom/react-native-obd2');
 ...
 obd2.getBluetoothDeviceNameList()
      .then((nameList) => console.log('Bluetooth device list : ' + JSON.stringify(nameList)))
@@ -42,7 +57,7 @@ The data is flow to your listeners. Therfore you have to set your listenr named 
 
 ### Example
 ````
-const obd2 = require('react-native-obd2');
+const obd2 = require('@furkanom/react-native-obd2');
 ...
   componentDidMount() {
     this.obdLiveDataListener = DeviceEventEmitter.addListener('obd2LiveData', this.obdLiveData);
@@ -58,7 +73,7 @@ const obd2 = require('react-native-obd2');
 Hey stop it!
 
 ## Listeners
-### 'obd2bluetoothStatus' 
+### 'obd2bluetoothStatus'
 for getting bluetooth device status.
 
 JSON key | Type | Description

@@ -32,7 +32,7 @@ import SharedPreference from 'react-native-sp';
 
 import AppEventEmitter from '../services/AppEventEmitter';
 
-const obd2 = require('react-native-obd2');
+const obd2 = require('@furkanom/react-native-obd2');
 const SensorManager = require('NativeModules').SensorManager;
 
 const Color = require('../utils/Color');
@@ -54,7 +54,7 @@ export default class OBDReader extends Component {
       btSelectedDeviceAddress: '',
       obdStatus: 'disconnected',
       debug : '-',
-      obd2Data : { } 
+      obd2Data : { }
     };
 
     this.sensorOrientation = this.sensorOrientation.bind(this);
@@ -164,7 +164,7 @@ export default class OBDReader extends Component {
         this.setState({
           isStartLiveData: true,
         });
-        
+
         SensorManager.startOrientation(1000);
         this.listenerOrientation = DeviceEventEmitter.addListener('Orientation', this.sensorOrientation);
         obd2.setMockUpMode(isMockUpMode);
@@ -205,7 +205,7 @@ export default class OBDReader extends Component {
       .then((nameList) => {
         console.log('Bluetooth device list : ' + JSON.stringify(nameList));
         this.setState({btDeviceList : nameList});
-    
+
       })
       .catch((e) => {
         console.log('Get device name error : ' + e)
@@ -219,7 +219,7 @@ export default class OBDReader extends Component {
 
   runMenu(value) {
     switch(value) {
-      case 1 : 
+      case 1 :
         this.startLiveData();
         break;
       case 2 :
@@ -243,7 +243,7 @@ export default class OBDReader extends Component {
 
     return (
       <MenuContext style={{flex: 1}}>
-      <View style={{flex: 1}}> 
+      <View style={{flex: 1}}>
         <NavigationBar
           style={{flex: 0.1, backgroundColor: Color.BG_NAVIBAR}}
           tintColor={Color.WHITE}
@@ -252,10 +252,10 @@ export default class OBDReader extends Component {
             <Menu onSelect={this.runMenu.bind(this)}>
               <MenuTrigger>
                 <Text style={{
-                  marginRight: 10, 
-                  padding: 10, 
-                  alignSelf: 'center', 
-                  fontSize: 20, 
+                  marginRight: 10,
+                  padding: 10,
+                  alignSelf: 'center',
+                  fontSize: 20,
                   color: Color.WHITE}}>&#8942;</Text>
               </MenuTrigger>
               <MenuOptions>
@@ -287,7 +287,7 @@ export default class OBDReader extends Component {
             <ScrollView>
               {
                 cmdData.map((item, index) => (
-                  <View 
+                  <View
                     style={{flexDirection:'row', alignItems: 'center'}}
                     key={index}
                     >
@@ -330,4 +330,3 @@ const styles = StyleSheet.create({
     color: Color.BLACK
   }
 });
-
